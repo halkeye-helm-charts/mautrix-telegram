@@ -86,14 +86,10 @@ spec:
             httpGet:
               path: /_matrix/mau/live
               port: http
-            initialDelaySeconds: 60
-            periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /_matrix/mau/live
               port: http
-            initialDelaySeconds: 60
-            periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:

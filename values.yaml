@@ -5,8 +5,7 @@
 replicaCount: 1
 
 image:
-  #repository: dock.mau.dev/tulir/mautrix-telegram
-  repository: halkeye/mautrix-telegram
+  repository: dock.mau.dev/tulir/mautrix-telegram
   tag: latest
   pullPolicy: Always
 

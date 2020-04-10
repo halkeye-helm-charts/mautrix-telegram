@@ -2,7 +2,7 @@ apiVersion: v1
 appVersion: "latest"
 description: A Matrix-Telegram hybrid puppeting/relaybot bridge - https://matrix.to/#/#telegram:maunium
 name: mautrix-telegram
-version: 0.1.1
+version: 0.1.2
 keywords:
   - synapse
   - chat

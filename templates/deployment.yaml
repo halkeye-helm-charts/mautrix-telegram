@@ -80,7 +80,7 @@ spec:
 {{- if semverCompare ">=1.16-0" .Capabilities.KubeVersion.GitVersion }}
           startupProbe:
             httpGet:
-              path: /
+              path: /_matrix/mau/live
               port: http
             initialDelaySeconds: {{ .Values.probes.startup.initialDelaySeconds }}
             failureThreshold: {{ .Values.probes.startup.failureThreshold }}
@@ -89,8 +89,6 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: data
-              mountPath: /data
             - name: config
               mountPath: /config
             - name: logs
@@ -111,7 +109,5 @@ spec:
         - name: config
           secret:
             secretName: {{ include "mautrix-telegram.fullname" . }}
-        - name: data
-          emptyDir: {}
         - name: logs
           emptyDir: {}

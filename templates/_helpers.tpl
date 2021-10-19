@@ -35,13 +35,20 @@ Create chart name and version as used by the chart label.
 Common labels
 */}}
 {{- define "mautrix-telegram.labels" -}}
-app.kubernetes.io/name: {{ include "mautrix-telegram.name" . }}
 helm.sh/chart: {{ include "mautrix-telegram.chart" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
+{{ include "mautrix-telegram.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end -}}
+
+{{/*
+Selector labels
+*/}}
+{{- define "mautrix-telegram.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "mautrix-telegram.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
 {{/*
